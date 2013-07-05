@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Transformer::VERSION
   spec.authors       = ["Bolek Kurowski"]
   spec.email         = ["bolek@cmu.edu"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = "Run data transformation with a style"
+  spec.summary       = "Organizae, test and run data transformations"
   spec.homepage      = ""
   spec.license       = "MIT"
 
