@@ -6,7 +6,7 @@ module Transformer
 		def initialize *args, &block
 			@transformed_class = args.first if args.first.kind_of? Class
 			@transformations = []
-			block.call() if block
+			instance_eval &block if block
 		end
 
 		def it *args, &block
