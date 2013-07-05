@@ -7,11 +7,16 @@ require "transformer/dsl"
 
 module Transformer
   def self.world
-  	@world ||= World.new
+    if @world.nil?
+      @world = World.new
+      dirs = Dir['./transformations/**/*_tform.rb'].each { |f| load f }
+    end
+  	@world
   end
 
   def self.reset
-  	@world = World.new
+  	@world = nil
+    world
   end
 
   def self.run data
