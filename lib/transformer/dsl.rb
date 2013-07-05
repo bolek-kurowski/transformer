@@ -1,7 +1,7 @@
 module Transformer
 	module DSL
 
-    def transform(*args, &transform_block)
+    def transform(*args, &block)
     	Transformer::TransformationGroup.new(*args, &block).register
     end
 
