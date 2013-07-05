@@ -1,15 +1,18 @@
 module Transformer
 
 	class World
-		attr_reader :transformations
+		attr_reader :transformation_groups
 
 		def initialize
-			@transformations = []
+			@transformation_groups = {}
 		end
 
-		def register transformation
-			raise Transformer::NotATransformation.new unless transformation.kind_of? Transformer::Transformation
-			@transformations << transformation
+		def register transformation_group
+			raise Transformer::NotATransformationGroup.new unless transformation_group.kind_of? TransformationGroup
+			@transformation_groups[transformation_group.transformed_class.
+				to_s.to_sym] ||= []
+			@transformation_groups[transformation_group.transformed_class.
+				to_s.to_sym] << transformation_group
 		end
 
 	end

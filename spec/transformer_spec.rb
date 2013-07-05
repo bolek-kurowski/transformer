@@ -16,9 +16,15 @@ describe Transformer do
 
 		it "runs a set of trnsformations on a data point" do
 			Transformer.reset
-			Transformer::Transformation.new{|d| d + ' over' }.register
-			Transformer::Transformation.new{|d| d + ' the' }.register
-			Transformer::Transformation.new{|d| d + ' fence' }.register
+
+			tg = Transformer::TransformationGroup.new(String)
+			tg.it('adds "over"') { |s| s += ' over' }
+			tg.it('adds "the"') { |s| s+= ' the' }
+			tg.it('adds "fence"') { |s| s+= ' fence' }
+			tg.register
+
+			#raise "#{tg.transformations.size}"
+			tg.transformations.size.should == 3
 
 			Transformer.run("Brown Fox").should eq 'Brown Fox over the fence'
 		end

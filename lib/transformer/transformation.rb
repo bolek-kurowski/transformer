@@ -1,17 +1,13 @@
 module Transformer
 	class Transformation
-		attr_reader :name
+		attr_reader :description, :block
 
 		def initialize *args, &block
 			raise Transformer::EmptyTransformation unless block
 			@block = block
-			@name = args.first if args.first
+			@description = args.first if args.first
 		end
 		
-		def register
-			Transformer.world.register self
-		end
-
 		def run data
 			data = @block.call(data)
 		end

@@ -9,17 +9,12 @@ describe Transformer::Transformation do
 		expect{ Transformer::Transformation.new }.to raise_error Transformer::EmptyTransformation
 	end
 
-	it 'has a name' do
-		subject.name.should eq 'jump over the fence'
-	end
-
-	it "can register to world" do
-		subject.register
-		Transformer.world.transformations.should include subject
-	end
-
 	it 'runs transformations' do
 		subject.run('Brown Fox').should eq 'Brown Fox jumps over the fence'
+	end
+
+	it 'has a description' do
+		subject.description.should eq 'jump over the fence'
 	end
 
 end
