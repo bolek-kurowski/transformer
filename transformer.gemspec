@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "transformer"
   spec.version       = Transformer::VERSION
   spec.authors       = ["Bolek Kurowski"]
-  spec.email         = ["bolek@cmu.edu"]
+  spec.email         = ["bolek@alumni.cmu.edu"]
   spec.description   = "Run data transformation with a style"
   spec.summary       = "Organizae, test and run data transformations"
   spec.homepage      = ""
